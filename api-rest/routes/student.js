@@ -40,7 +40,7 @@ router.post('/api/student', (req, res) => {
 
 // Metodo PUT para Actualizar un Estudiante
 router.put('/api/student/:id', (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
 
   mysqlConnection.query('UPDATE student SET ? WHERE id = ?', [req.body, id], (err, rows, fields) => {
     if(!err) {
